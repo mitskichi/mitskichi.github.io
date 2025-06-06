@@ -1,0 +1,41 @@
+{
+  "username": "𝓁𝓊𝓷𝒶",
+  "description": [
+    "beautiful melancholy of being a woman",
+    "follow me on all my socials<3"
+  ],
+
+  "title": "mitskichi",
+  "subtitle": "all my socials ⁀➴",
+
+  "avatar": "/images/avatar.png",
+  "background": "/images/background.png",
+
+  "socials": [
+    {
+      "username": "@forestfire",
+      "description": "Throne",
+      "url": "https://throne.com/forestfire"
+    },
+    {
+      "username": "@mitskichi",
+      "description": "Instagram <3",
+      "url": "https://instagram.com/mitskichi"
+    },
+    {
+      "username": "@lunedarko",
+      "description": "Twitter <3",
+      "url": "https://x.com/lunedarko"
+    },
+    {
+      "username": "@mitskichii",
+      "description": "Twitter +18",
+      "url": "https://x.com/mitskichii"
+    },
+    {
+      "username": "@nymphoon",
+      "description": "Twitter +18 (paid)",
+      "url": "https://x.com/nymphoon"
+    }
+  ]
+}
