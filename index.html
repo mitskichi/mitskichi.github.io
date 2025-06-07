@@ -10,8 +10,8 @@
 <body>
 <header>
     <h1 id="header-title">Loading...</h1>
+    <button id="mute-toggle" aria-label="Toggle background music" title="Mute / Unmute music">Unmute</button>
 </header>
-
 <main class="container">
     <section class="intro">
         <img src="" alt="Avatar" class="avatar" id="profile-avatar" />
@@ -20,14 +20,15 @@
             <p id="typewriter-text"></p>
         </div>
     </section>
-
     <section class="testimonials-header">
-        <h2 id="subtitle-text"></h2>
+        <h2 id="socials-title"></h2>
     </section>
-
     <section class="testimonials" id="socials-wrapper"></section>
 </main>
-
+<footer>
+    <p>© 2025 Mitskichi. All rights reserved.</p>
+</footer>
+<audio id="background-music-player" loop></audio>
 <script src="app.js"></script>
 </body>
 </html>

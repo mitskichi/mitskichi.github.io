@@ -1,13 +1,11 @@
 :root {
     --bg-url: none;
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 html, body {
     height: 100%;
     margin: 0;
@@ -16,7 +14,6 @@ html, body {
     overflow-x: hidden;
     overflow-y: auto;
 }
-
 body {
     position: relative;
     font-family: 'Inter', sans-serif;
@@ -27,7 +24,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
 }
-
 body::before {
     content: "";
     position: fixed;
@@ -41,7 +37,6 @@ body::before {
     will-change: transform;
     transform: translateZ(0);
 }
-
 @media (min-width: 768px) {
     body::before {
         background-repeat: no-repeat;
@@ -49,7 +44,6 @@ body::before {
         background-size: cover;
     }
 }
-
 @media (max-width: 767px) {
     body::before {
         background-position: center top;
@@ -58,7 +52,6 @@ body::before {
         -webkit-transform-style: preserve-3d;
     }
 }
-
 body::after {
     content: "";
     position: fixed;
@@ -67,16 +60,14 @@ body::after {
     z-index: -1;
     pointer-events: none;
 }
-
 main.container {
     max-width: 1200px;
     margin: 2rem auto;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     min-height: 100vh;
     position: relative;
     z-index: 0;
 }
-
 header {
     position: sticky;
     top: 0;
@@ -87,46 +78,68 @@ header {
     align-items: center;
     padding: 1rem 2rem;
     backdrop-filter: saturate(180%) blur(5px);
+    flex-wrap: nowrap;
 }
-
+@media (max-width: 768px) {
+    header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    #header-title {
+        flex-grow: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    #mute-toggle {
+        margin-left: 1rem;
+    }
+}
 header h1#header-title {
     font-size: 2rem;
     font-weight: 800;
     text-shadow: 0 0 5px rgba(241, 245, 249, 0.8);
 }
-
+#mute-toggle {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+    user-select: none;
+}
+#mute-toggle:hover {
+    color: #a46bff;
+}
 nav a {
     color: #cbd5e1;
     text-decoration: none;
     margin-left: 1rem;
     font-weight: 500;
 }
-
 nav a:hover {
     color: #3b82f6;
 }
-
 .intro {
     display: flex;
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
 }
-
 .avatar#profile-avatar {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
 }
-
 .intro-text h2#profile-name {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
     text-shadow: 0 0 5px rgba(241, 245, 249, 0.8);
 }
-
 .intro-text p#typewriter-text {
     max-width: 700px;
     color: #fff;
@@ -134,33 +147,28 @@ nav a:hover {
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
     position: relative;
 }
-
 #typewriter-text::after {
     content: "|";
     animation: blink 1s infinite;
     margin-left: 5px;
 }
-
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
-
-.testimonials-header h2#subtitle-text {
+.testimonials-header h2#socials-title {
     text-align: center;
     margin: 3rem 0 1.5rem;
     font-size: 1.6rem;
     font-weight: bold;
     text-shadow: 0 0 5px rgba(241, 245, 249, 0.8);
 }
-
 .testimonials#socials-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
 }
-
 .testimonial {
     background-color: rgba(32, 32, 32, 0.8);
     padding: 1.5rem;
@@ -169,65 +177,70 @@ nav a:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .testimonial:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
 }
-
 .user-info {
     display: flex;
     align-items: center;
     gap: 0.6rem;
     margin-bottom: 0.5rem;
 }
-
 .user-info img {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
 }
-
 .testimonial h3 {
     font-size: 1.2rem;
     text-shadow: 0 0 5px rgba(241, 245, 249, 0.8);
 }
-
 .testimonial .role {
     font-size: 0.9rem;
     color: #94a3b8;
     text-shadow: 0 0 4px rgba(148, 163, 184, 0.7);
 }
-
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    color: #f1f5f9;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    backdrop-filter: saturate(180%) blur(5px);
+    z-index: 20;
+    user-select: none;
+}
 @media (max-width: 768px) {
     .intro {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-
     .intro-text {
         width: 100%;
     }
 }
-
 @media (max-width: 600px) {
     html, body {
         height: auto;
         min-height: 100vh;
     }
-
     header {
         padding: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
-
     header h1#header-title {
         font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        text-align: center;
-        width: 100%;
+        margin-bottom: 0;
+        text-align: left;
+        width: auto;
     }
 }
