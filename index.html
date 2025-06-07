@@ -3,101 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>luna</title>
+    <title>Luna</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1 id="header-username">loading...</h1>
+    <h1 id="header-title">Loading...</h1>
 </header>
 
 <main class="container">
     <section class="intro">
-        <img src="" alt="Avatar" class="avatar" id="avatar-img" />
+        <img src="" alt="Avatar" class="avatar" id="profile-avatar" />
         <div class="intro-text">
-            <h2 id="profile-username"></h2>
+            <h2 id="profile-name"></h2>
             <p id="typewriter-text"></p>
         </div>
     </section>
 
     <section class="testimonials-header">
-        <h2 id="subtitle"></h2>
+        <h2 id="subtitle-text"></h2>
     </section>
 
-    <section class="testimonials" id="socials-container"></section>
+    <section class="testimonials" id="socials-wrapper"></section>
 </main>
 
-<script>
-    fetch('config.json').then(r => r.json()).then(data => {
-        document.getElementById('header-username').textContent = data.title || data.username || "";
-        const avatar = document.getElementById('avatar-img');
-        avatar.src = data.avatar || "";
-        avatar.alt = (data.username || "avatar") + " avatar";
-        document.getElementById('profile-username').textContent = data.username || "";
-        document.getElementById('subtitle').textContent = data.subtitle || "";
-
-        if(data.background){
-            document.body.style.setProperty('--bg-url', `url("${data.background}")`);
-            document.body.classList.add('has-bg');
-        } else {
-            document.body.style.removeProperty('--bg-url');
-            document.body.classList.remove('has-bg');
-        }
-
-        const element = document.getElementById("typewriter-text");
-        const texts = data.description || [];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentText = texts[textIndex] || "";
-            if (!isDeleting) {
-                element.textContent = currentText.slice(0, charIndex + 1);
-                charIndex++;
-
-                if (charIndex === currentText.length) {
-                    isDeleting = true;
-                    setTimeout(type, 1500);
-                    return;
-                }
-            } else {
-                element.textContent = currentText.slice(0, charIndex - 1);
-                charIndex--;
-
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    textIndex = (textIndex + 1) % texts.length;
-                }
-            }
-            setTimeout(type, isDeleting ? 40 : 90);
-        }
-
-        type();
-
-        const socialsContainer = document.getElementById('socials-container');
-        socialsContainer.innerHTML = "";
-        if(Array.isArray(data.socials)){
-            data.socials.forEach(social => {
-                const div = document.createElement('div');
-                div.className = 'testimonial';
-                div.onclick = () => {
-                    if(social.url) window.open(social.url, '_blank');
-                };
-                div.innerHTML = `
-                <div class="user-info">
-                    <img src="${social.avatar || ''}" onerror="this.remove()" alt="pfp" />
-                    <h3>${social.username}</h3>
-                </div>
-                <p class="role">${social.description}</p>
-                `;
-                socialsContainer.appendChild(div);
-            });
-        }
-    }).catch(err => {
-        console.error("Error loading config.json:", err);
-    });
-</script>
+<script src="app.js"></script>
 </body>
 </html>
