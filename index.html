@@ -2,89 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>mitskichi</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="images/favicon.png" type="image/png" />
 </head>
 <body>
-<header>
-    <div class="logo">mitskichi</div>
-    <nav id="nav">
-        <ul>
-            <li><a href="https://github.com/mitskichi" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Github</a></li>
-            <li><button id="music-toggle" style="background:none; border:none; color:inherit; cursor:pointer; font:inherit; padding:0;">Music: Muted</button></li>
-        </ul>
-    </nav>
-    <button id="menu-toggle" class="menu">&#9776;</button>
-    <button id="menu-close" class="close">&times;</button>
+<div class="background-overlay"></div>
+<canvas id="particles"></canvas>
+
+<header class="main-header">
+    <div class="left">mitskichi</div>
+    <div class="right desktop-links">
+        <a href="https://github.com/mitskichi" target="_blank">Github</a>
+    </div>
+    <div id="menuToggle" class="menu-toggle">&#9776;</div>
 </header>
 
-<section class="hero">
-    <div class="profile-container">
-        <img class="avatar" src="images/avatar.png" alt="avatar" />
-    </div>
+<nav id="mobileMenu" class="mobile-menu">
+    <a href="#spotifySection">Spotify</a>
+    <a href="https://github.com/mitskichi" target="_blank">Github</a>
+</nav>
+
+<div class="content">
     <h1>𝓁𝓊𝓃𝒶</h1>
-    <p id="typewriter-text"></p>
-</section>
-
-<section class="socials">
-    <h2>୨ৎ all my socials ୨ৎ</h2>
-    <div class="cards">
-        <div class="card">
-            <a href="https://instagram.com/mitskichi" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
-                <div class="card-badge">✿</div>
-                <img class="social_icon" src="images/icons/Instagram.png" alt="Instagram" />
-                <h3>@mitskichi</h3>
-                <p>Instagram</p>
+    <p id="typewriter"></p>
+    <div class="experience-wrapper">
+        <div class="experience">
+            <a href="https://instagram.com/mitskichi" class="card" target="_blank">
+                <img src="images/icons/Instagram.png" alt="Instagram">
+                <div>
+                    <h2>mitskichi</h2>
+                    <h3>Instagram <3</h3>
+                </div>
+            </a>
+            <a href="https://x.com/mitskichii" class="card" target="_blank">
+                <img src="images/icons/Twitter.png" alt="Twitter">
+                <div>
+                    <h2>mitskichii</h2>
+                    <h3>NSFW Twitter (+18)</h3>
+                </div>
+            </a>
+            <a href="https://x.com/mitskichiii" class="card" target="_blank">
+                <img src="images/icons/Twitter_paid.png" alt="Twitter Paid">
+                <div>
+                    <h2>mitskichiii</h2>
+                    <h3>Paid NSFW Twitter</h3>
+                </div>
+            </a>
+            <a href="https://throne.com/lunedarko" class="card" target="_blank">
+                <img src="images/icons/Throne.png" alt="Throne">
+                <div>
+                    <h2>lunedarko</h2>
+                    <h3>Throne :3</h3>
+                </div>
+            </a>
+            <a href="https://tiktok.com/@lunedarko" class="card" target="_blank">
+                <img src="images/icons/Tiktok.png" alt="Tiktok">
+                <div>
+                    <h2>lunedarko</h2>
+                    <h3>My TikTok <3</h3>
+                </div>
+            </a>
+            <a href="https://x.com/lunedarko" class="card" target="_blank">
+                <img src="images/icons/Twitter_darko.png" alt="Twitter darko">
+                <div>
+                    <h2>lunedarko</h2>
+                    <h3>Twitter <3</h3>
+                </div>
             </a>
         </div>
-        <div class="card">
-            <a href="https://x.com/mitskichii" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
-                <div class="card-badge">+18</div>
-                <img class="social_icon" src="images/icons/Twitter.png" alt="Twitter" />
-                <h3>@mitskichii</h3>
-                <p>Twitter</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="https://x.com/mitskichiii" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
-                <div class="card-badge">+18 paid</div>
-                <img class="social_icon" src="images/icons/Twitter_paid.png" alt="Twitter" />
-                <h3>@mitskichiii</h3>
-                <p>Twitter</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="https://throne.com/lunedarko" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
-                <div class="card-badge">✿</div>
-                <img class="social_icon" src="images/icons/Throne.png" alt="Throne" />
-                <h3>@lunedarko</h3>
-                <p>Throne</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="https://tiktok.com/@lunedarko" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
-                <div class="card-badge">✿</div>
-                <img class="social_icon" src="images/icons/Tiktok.png" alt="TikTok" />
-                <h3>@lunedarko</h3>
-                <p>TikTok</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="https://x.com/lunedarko" target="_blank" rel="noopener noreferrer" style="display: block; color: inherit; text-decoration: none;">
-                <div class="card-badge">✿</div>
-                <img class="social_icon" src="images/icons/Twitter_darko.png" alt="Twitter" />
-                <h3>@lunedarko</h3>
-                <p>Twitter</p>
-            </a>
+        <div class="spotify-embed" id="spotifySection">
+            <iframe src="https://open.spotify.com/embed/playlist/2CVLlsMXEtEwUm6UqsjnSn?utm_source=generator" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
     </div>
-</section>
-
-<footer class="footer">
-    <p>© 2025 Mitskichi. All rights reserved.</p>
-</footer>
+</div>
 
 <script src="app.js"></script>
 </body>
