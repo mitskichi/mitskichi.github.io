@@ -52,15 +52,9 @@ window.addEventListener('resize', () => {
     setCanvasSize()
 })
 
-const menuToggle = document.getElementById('menuToggle')
-const mobileMenu = document.getElementById('mobileMenu')
-const spotifyLink = document.querySelector('#mobileMenu a[href="#spotifySection"]')
+const spotifyIcon = document.querySelector('.icon.spotify')
 
-menuToggle.addEventListener('click', () => {
-    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex'
-})
-
-spotifyLink.addEventListener('click', (e) => {
+spotifyIcon.addEventListener('click', (e) => {
     e.preventDefault()
     const spotify = document.querySelector('.spotify-embed')
     if (spotify) {
@@ -68,7 +62,6 @@ spotifyLink.addEventListener('click', (e) => {
             top: spotify.getBoundingClientRect().top + window.scrollY - 80,
             behavior: 'smooth'
         })
-        mobileMenu.style.display = 'none'
     }
 })
 
@@ -80,30 +73,47 @@ document.querySelectorAll('img').forEach(img => {
 })
 
 const typeEl = document.getElementById("typewriter")
-const typeText = "beautiful melancholy of being a woman"
+const texts = [
+    "beautiful melancholy of being a woman",
+    "follow me on all my socials :3"
+]
+
 let i = 0
+let charIndex = 0
 let isDeleting = false
 
 function type() {
+    const currentText = texts[i]
     const speed = isDeleting ? 60 : 100
-    typeEl.textContent = typeText.substring(0, i)
-    if (!isDeleting && i < typeText.length) {
-        i++
-    } else if (isDeleting && i > 0) {
-        i--
+
+    if (!isDeleting) {
+        charIndex++
+        typeEl.textContent = currentText.substring(0, charIndex)
+        if (charIndex === currentText.length) {
+            isDeleting = true
+            setTimeout(type, 1000)
+            return
+        }
     } else {
-        isDeleting = !isDeleting
-        setTimeout(type, isDeleting ? 1000 : 200)
-        return
+        charIndex--
+        typeEl.textContent = currentText.substring(0, charIndex)
+        if (charIndex === 0) {
+            isDeleting = false
+            i = (i + 1) % texts.length
+            setTimeout(type, 200)
+            return
+        }
     }
+
     setTimeout(type, speed)
 }
+
 type()
 
 const targets = [
-    { el: document.querySelector('.content'), factor: 20, rotate: true },
-    { el: document.querySelector('.experience'), factor: 10, rotate: false },
-    { el: document.querySelector('.spotify-embed'), factor: 6, rotate: false }
+    { el: document.querySelector('.content'), factor: 6, rotate: true },
+    { el: document.querySelector('.experience'), factor: 3, rotate: false },
+    { el: document.querySelector('.spotify-embed'), factor: 2, rotate: false }
 ]
 
 let targetX = 0, targetY = 0
@@ -117,15 +127,15 @@ document.addEventListener('mousemove', (e) => {
 })
 
 function animateParallax() {
-    currentX += (targetX - currentX) * 0.08
-    currentY += (targetY - currentY) * 0.08
+    currentX += (targetX - currentX) * 0.05
+    currentY += (targetY - currentY) * 0.05
 
     targets.forEach(({ el, factor, rotate }) => {
         if (!el) return
         const moveX = currentX * factor
         const moveY = currentY * factor
-        const rotateX = rotate ? -currentY * 5 : 0
-        const rotateY = rotate ? currentX * 5 : 0
+        const rotateX = rotate ? -currentY * 3 : 0
+        const rotateY = rotate ? currentX * 3 : 0
 
         el.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
     })
@@ -137,11 +147,11 @@ animateParallax()
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            entry.target.classList.add('show')
         }
-    });
+    })
 }, {
     threshold: 0.15
-});
+})
 
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
