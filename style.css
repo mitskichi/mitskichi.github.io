@@ -15,76 +15,21 @@ body {
 
 .background-overlay {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
 
 #particles {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-}
-
-.main-header {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    background: rgba(0, 0, 0, 0.35);
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.main-header .left {
-    font-size: 1.3rem;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-}
-
-.main-header .right a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: normal;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 4;
-}
-
-.mobile-menu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 85px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.85);
-    padding: 1.5rem;
-    border-radius: 12px;
-    z-index: 5;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu a {
-    color: white;
-    text-decoration: none;
-    margin: 0.75rem 0;
-    font-size: 1.2rem;
-    font-weight: 500;
-    text-shadow: 0 0 5px rgba(255,255,255,0.2);
+    height: 100%;
+    z-index: 0;
 }
 
 .content,
@@ -99,8 +44,8 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 6rem 2rem 2rem 2rem;
-    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    padding: 4rem 2rem 2rem 2rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     perspective: 1000px;
 }
 
@@ -131,12 +76,11 @@ p {
 .card {
     display: flex;
     gap: 1rem;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
     text-decoration: none;
     transition: transform 0.2s ease;
     cursor: pointer;
     transform-origin: center;
-    touch-action: manipulation;
     will-change: transform;
 }
 
@@ -218,6 +162,58 @@ img {
     -webkit-user-drag: none;
 }
 
+.luna-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.luna-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.luna-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.luna-info h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.1rem;
+}
+
+.luna-icons {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: flex-start;
+    margin-left: 4px;
+}
+
+.luna-icons .icon img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.luna-icons .icon:hover img {
+    transform: scale(1.1);
+}
+
+.mobile-only {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .experience-wrapper {
         flex-direction: column;
@@ -226,7 +222,7 @@ img {
     }
 
     .spotify-embed {
-        margin: 0 auto;
+        margin: 0.5rem auto 0 auto;
         width: 90%;
     }
 
@@ -235,7 +231,7 @@ img {
     }
 
     .content {
-        padding-top: 7rem;
+        padding-top: 2rem;
     }
 
     h1 {
@@ -253,6 +249,31 @@ img {
     .menu-toggle {
         display: block;
     }
+
+    .mobile-only {
+        display: inline-block;
+    }
+
+    .luna-info {
+        align-items: center;
+        text-align: center;
+    }
+
+    .luna-info h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .luna-icons {
+        gap: 0.75rem;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .luna-icons .icon img {
+        width: 28px;
+        height: 28px;
+    }
 }
 
 #typewriter {
@@ -264,14 +285,11 @@ img {
     vertical-align: top;
 }
 
-.fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    will-change: opacity, transform;
-}
-
-.fade-up.show {
-    opacity: 1;
-    transform: translateY(0);
+.footer {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+    color: #aaa;
+    background: transparent;
+    user-select: none;
 }
